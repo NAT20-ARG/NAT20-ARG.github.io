@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nat 20 – Fantasía Aventurera</title>
+
+  <style>
+    /* =============================
+       PALETA – FANTASÍA AVENTURERA
+       ============================= */
+    :root {
+      --verde-principal: #1F7A63;
+      --verde-oscuro: #163F35;
+      --crema: #F5F2EA;
+      --marron: #5A4632;
+      --marron-oscuro: #2E2418;
+      --dorado: #D6B76C;
+    }
+
+    /* =============================
+       RESET BÁSICO
+       ============================= */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      height: 100vh;
+      background-color: var(--crema);
+      font-family: 'Cinzel', serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: var(--marron-oscuro);
+    }
+
+    /* =============================
+       CONTENEDOR PRINCIPAL
+       ============================= */
+    .container {
+      text-align: center;
+      padding: 2rem 3rem;
+      border: 2px solid var(--marron);
+      background-color: #ffffff;
+      max-width: 480px;
+      width: 100%;
+    }
+
+    /* =============================
+       LOGO
+       ============================= */
+    .logo {
+      width: 220px;
+      height: auto;
+      margin: 0 auto 1.5rem auto;
+      display: block;
+    }
+
+    .logo-placeholder {
+      width: 220px;
+      height: 220px;
+      margin: 0 auto 1.5rem auto;
+      border: 2px dashed var(--verde-principal);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: var(--verde-principal);
+      font-size: 0.9rem;
+    }
+
+    /* =============================
+       TEXTO
+       ============================= */
+    h1 {
+      font-size: 2.2rem;
+      letter-spacing: 0.15em;
+      color: var(--verde-principal);
+      margin-bottom: 0.5rem;
+    }
+
+    h2 {
+      font-size: 1rem;
+      font-weight: normal;
+      letter-spacing: 0.2em;
+      color: var(--marron);
+      text-transform: uppercase;
+    }
+
+    /* =============================
+       RESPONSIVE
+       ============================= */
+    @media (max-width: 480px) {
+      .container {
+        padding: 1.5rem;
+      }
+
+      h1 {
+        font-size: 1.8rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+
+    <!-- Reemplazar este bloque por <img src="logo.png" class="logo" /> -->
+    <img src="images/isologo.png" class="logo" />
+
+    <h1>NAT 20</h1>
+    <h2>Fantasía Aventurera</h2>
+
+  </div>
+</body>
+</html>
