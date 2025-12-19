@@ -5,114 +5,387 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Nat 20 – Fantasía Aventurera</title>
 
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Montserrat:wght@400;500&display=swap" rel="stylesheet">
+
+  <!-- AOS -->
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
   <style>
     /* =============================
-       PALETA – FANTASÍA AVENTURERA
+       VARIABLES – NAT 20
        ============================= */
     :root {
       --verde-principal: #1F7A63;
       --verde-oscuro: #163F35;
+      --verde-medio: #3A8C76;
+      --verde-claro: #7FB9A7;
+
       --crema: #F5F2EA;
+      --arena: #E8DDC6;
+
       --marron: #5A4632;
+      --marron-medio: #6B563A;
       --marron-oscuro: #2E2418;
+
       --dorado: #D6B76C;
+      --bronce: #A88A3D;
+
+      --rojo-critico: #9E2A2B;
     }
 
     /* =============================
-       RESET BÁSICO
+       RESET & BASE
        ============================= */
-    * {
+    *, *::before, *::after {
+      box-sizing: border-box;
       margin: 0;
       padding: 0;
-      box-sizing: border-box;
+    }
+
+    html {
+      font-size: 100%;
     }
 
     body {
-      height: 100vh;
+      font-family: 'Montserrat', sans-serif;
       background-color: var(--crema);
-      font-family: 'Cinzel', serif;
-      display: flex;
-      justify-content: center;
-      align-items: center;
       color: var(--marron-oscuro);
+      line-height: 1.6;
     }
 
-    /* =============================
-       CONTENEDOR PRINCIPAL
-       ============================= */
-    .container {
-      text-align: center;
-      padding: 2rem 3rem;
-      border: 2px solid var(--marron);
-      background-color: #ffffff;
-      max-width: 480px;
-      width: 100%;
-    }
-
-    /* =============================
-       LOGO
-       ============================= */
-    .logo {
-      width: 220px;
+    img {
+      max-width: 100%;
       height: auto;
-      margin: 0 auto 1.5rem auto;
       display: block;
     }
 
-    .logo-placeholder {
-      width: 220px;
-      height: 220px;
-      margin: 0 auto 1.5rem auto;
-      border: 2px dashed var(--verde-principal);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      color: var(--verde-principal);
-      font-size: 0.9rem;
+    a {
+      text-decoration: none;
+      color: inherit;
     }
 
     /* =============================
-       TEXTO
+       HERO
        ============================= */
-    h1 {
-      font-size: 2.2rem;
-      letter-spacing: 0.15em;
-      color: var(--verde-principal);
-      margin-bottom: 0.5rem;
+    .hero {
+      min-height: 100vh;
+      padding: min(10vh, 6rem) 5vw;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background:
+        linear-gradient(rgba(22,63,53,0.75), rgba(22,63,53,0.75)),
+        url("images/hero-bg.jpg") center / cover no-repeat;
     }
 
-    h2 {
-      font-size: 1rem;
-      font-weight: normal;
+    .hero-content {
+      width: 100%;
+      max-width: 30rem;
+      text-align: center;
+    }
+
+    .hero-content img {
+      margin: 0 auto 2rem;
+      width: clamp(16rem, 80vw, 28rem);
+    }
+
+    /* =============================
+       SECCIONES
+       ============================= */
+    section {
+      padding: clamp(3rem, 8vw, 5rem) 5vw;
+    }
+
+    .section-light {
+      background-color: var(--crema);
+    }
+
+    .section-alt {
+      background-color: var(--arena);
+    }
+
+    .section-title {
+      font-family: 'Cinzel', serif;
+      text-align: center;
+      font-size: clamp(1.1rem, 3vw, 1.5rem);
       letter-spacing: 0.2em;
-      color: var(--marron);
+      text-transform: uppercase;
+      color: var(--verde-principal);
+      margin-bottom: clamp(2rem, 6vw, 3rem);
+    }
+
+    /* =============================
+       REDES
+       ============================= */
+    .social-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: clamp(1.2rem, 4vw, 2.5rem);
+    }
+
+    .social-links a {
+      display: flex;
+      align-items: center;
+      gap: 0.5em;
+      font-size: clamp(0.75rem, 2.5vw, 0.9rem);
+      letter-spacing: 0.1em;
+      border-bottom: 0.08em solid transparent;
+      transition: border-color 0.3s;
+    }
+
+    .social-links a:hover {
+      border-color: var(--verde-principal);
+    }
+
+    /* =============================
+       NOTICIAS
+       ============================= */
+    .news-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr));
+      gap: clamp(1.5rem, 5vw, 2.5rem);
+      max-width: 70rem;
+      margin: 0 auto;
+    }
+
+    .news-card {
+      background-color: #fff;
+      padding: 1.5rem;
+      border: 0.08em solid var(--marron-medio);
+      position: relative;
+    }
+
+    .news-card::before {
+      content: "";
+      position: absolute;
+      inset: 0.4rem;
+      border: 0.08em solid var(--dorado);
+      pointer-events: none;
+    }
+
+    .news-tag {
+      display: inline-block;
+      background-color: var(--rojo-critico);
+      color: var(--crema);
+      font-size: 0.6rem;
+      letter-spacing: 0.15em;
+      padding: 0.25em 0.6em;
+      margin-bottom: 0.75rem;
+    }
+
+    .news-card h4 {
+      font-family: 'Cinzel', serif;
+      font-size: 1rem;
+      margin-bottom: 0.4rem;
+    }
+
+    /* =============================
+       PRODUCTOS
+       ============================= */
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 14rem), 1fr));
+      gap: clamp(1.5rem, 5vw, 2.5rem);
+      max-width: 75rem;
+      margin: 0 auto;
+    }
+
+    .product-card {
+      background-color: #fff;
+      border: 0.08em solid var(--marron-medio);
+      position: relative;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .product-card::before {
+      content: "";
+      position: absolute;
+      inset: 0.4rem;
+      border: 0.08em solid var(--dorado);
+      pointer-events: none;
+    }
+
+    .product-card:hover {
+      transform: translateY(-0.3rem);
+      box-shadow: 0 0.6rem 1.5rem rgba(0,0,0,0.15);
+    }
+
+    .product-image {
+      aspect-ratio: 1 / 1;
+      overflow: hidden;
+    }
+
+    .product-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .product-title {
+      padding: 1rem;
+      text-align: center;
+      font-family: 'Cinzel', serif;
+      font-size: 0.8rem;
+      letter-spacing: 0.1em;
+    }
+
+    /* =============================
+       FOOTER
+       ============================= */
+    footer {
+      background-color: var(--verde-oscuro);
+      color: var(--crema);
+      padding: clamp(3rem, 8vw, 4rem) 5vw 2rem;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 12rem), 1fr));
+      gap: clamp(1.5rem, 5vw, 2.5rem);
+      max-width: 75rem;
+      margin: 0 auto 2rem;
+    }
+
+    .footer-grid h4 {
+      font-family: 'Cinzel', serif;
+      font-size: 0.85rem;
+      letter-spacing: 0.15em;
+      margin-bottom: 0.8rem;
       text-transform: uppercase;
     }
 
-    /* =============================
-       RESPONSIVE
-       ============================= */
-    @media (max-width: 480px) {
-      .container {
-        padding: 1.5rem;
-      }
+    .footer-grid a {
+      display: block;
+      font-size: 0.8rem;
+      margin-bottom: 0.4rem;
+    }
 
-      h1 {
-        font-size: 1.8rem;
-      }
+    .footer-bottom {
+      text-align: center;
+      font-size: 0.7rem;
+      opacity: 0.8;
     }
   </style>
 </head>
 
 <body>
-  <div class="container">
 
-    <!-- Reemplazar este bloque por <img src="logo.png" class="logo" /> -->
-    <img src="images/isologo.png" class="logo" />
+  <!-- HERO -->
+  <header class="hero">
+    <div class="hero-content" data-aos="fade-up">
+      <img src="images/isologo.png" alt="">
+      <img src="images/logotipo.png" alt="">
+    </div>
+  </header>
 
-    <h1>NAT 20</h1>
-    <h2>Fantasía Aventurera</h2>
+  <!-- REDES -->
+  <section class="section-alt" data-aos="fade-up">
+    <div class="social-links">
+      <a href="#"><i data-lucide="instagram"></i> Instagram</a>
+      <a href="#"><i data-lucide="video"></i> TikTok</a>
+      <a href="#"><i data-lucide="shopping-bag"></i> Mercado Libre</a>
+    </div>
+  </section>
 
-  </div>
+  <!-- NOTICIAS -->
+  <section class="section-light">
+    <h3 class="section-title" data-aos="fade-up">Noticias</h3>
+    <div class="news-grid">
+      <div class="news-card" data-aos="fade-up">
+        <span class="news-tag">NUEVO</span>
+        <h4>Dados Artesanales</h4>
+        <p>Nueva línea inspirada en aventuras clásicas.</p>
+      </div>
+      <div class="news-card" data-aos="fade-up" data-aos-delay="100">
+        <span class="news-tag">EVENTO</span>
+        <h4>Jornada de Rol</h4>
+        <p>Sumate a una tarde de mesas abiertas.</p>
+      </div>
+      <div class="news-card" data-aos="fade-up" data-aos-delay="200">
+        <span class="news-tag">ANUNCIO</span>
+        <h4>Próximos Lanzamientos</h4>
+        <p>Nuevos productos en camino.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRODUCTOS -->
+  <section class="section-alt">
+    <h3 class="section-title" data-aos="fade-up">Productos & Servicios</h3>
+    <div class="products-grid">
+      <a href="#" class="product-card" data-aos="fade-up">
+        <div class="product-image">
+          <img src="images/producto1.jpg" alt="">
+        </div>
+        <div class="product-title">Dados Premium</div>
+      </a>
+
+      <a href="#" class="product-card" data-aos="fade-up" data-aos-delay="100">
+        <div class="product-image">
+          <img src="images/producto2.jpg" alt="">
+        </div>
+        <div class="product-title">Accesorios</div>
+      </a>
+
+      <a href="#" class="product-card" data-aos="fade-up" data-aos-delay="200">
+        <div class="product-image">
+          <img src="images/producto3.jpg" alt="">
+        </div>
+        <div class="product-title">Servicios de Rol</div>
+      </a>
+
+      <a href="#" class="product-card" data-aos="fade-up" data-aos-delay="300">
+        <div class="product-image">
+          <img src="images/producto4.jpg" alt="">
+        </div>
+        <div class="product-title">Ediciones Especiales</div>
+      </a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-grid">
+      <div>
+        <h4>Nat 20</h4>
+        <p>Fantasía Aventurera</p>
+      </div>
+      <div>
+        <h4>Redes</h4>
+        <a href="#">Instagram</a>
+        <a href="#">TikTok</a>
+        <a href="#">Mercado Libre</a>
+      </div>
+      <div>
+        <h4>Contacto</h4>
+        <a href="mailto:contacto@nat20.com">contacto@nat20.com</a>
+      </div>
+      <div>
+        <h4>Enlaces</h4>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      © Nat20 2026
+    </div>
+  </footer>
+
+  <!-- LIBRERÍAS -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+  <script>
+    lucide.createIcons();
+    AOS.init({
+      duration: 900,
+      easing: 'ease-out-cubic',
+      once: true
+    });
+  </script>
+
 </body>
 </html>

@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nat 20 – Fantasía Aventurera</title>
+
+  <!-- Google Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* =============================
+       PALETA – FANTASÍA AVENTURERA
+       ============================= */
+    :root {
+      --verde-principal: #1F7A63;
+      --verde-oscuro: #163F35;
+      --crema: #F5F2EA;
+      --marron: #5A4632;
+      --marron-oscuro: #2E2418;
+      --dorado: #D6B76C;
+      --blanco: #ffffff;
+    }
+
+    /* =============================
+       RESET
+       ============================= */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Cinzel', serif;
+      background-color: var(--crema);
+      color: var(--marron-oscuro);
+      line-height: 1.6;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* =============================
+       HERO / HEADER
+       ============================= */
+    .hero {
+      min-height: 100vh;
+      background: url("images/hero-bg.jpg") center / cover no-repeat;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 2rem;
+    }
+
+    .hero-content {
+      background-color: rgba(255, 255, 255, 0.9);
+      border: 2px solid var(--marron);
+      padding: 2.5rem 3rem;
+      text-align: center;
+      max-width: 480px;
+      width: 100%;
+    }
+
+    .hero-content img {
+      margin: 0 auto 1.5rem auto;
+    }
+
+    /* =============================
+       SECCIONES GENERALES
+       ============================= */
+    section {
+      padding: 4rem 2rem;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 3rem;
+      font-size: 1.4rem;
+      letter-spacing: 0.15em;
+      color: var(--verde-principal);
+      text-transform: uppercase;
+    }
+
+    /* =============================
+       REDES SOCIALES
+       ============================= */
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+    }
+
+    .social-links a {
+      font-size: 0.9rem;
+      letter-spacing: 0.1em;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.3s;
+    }
+
+    .social-links a:hover {
+      border-color: var(--verde-principal);
+    }
+
+    /* =============================
+       NOTICIAS
+       ============================= */
+    .news-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 2rem;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .news-card {
+      border: 1px solid var(--marron);
+      padding: 1.5rem;
+      background-color: var(--blanco);
+    }
+
+    /* =============================
+       PRODUCTOS / SERVICIOS
+       ============================= */
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .product-card {
+      border: 1px solid var(--marron);
+      background-color: var(--blanco);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .product-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+    }
+
+    .product-image {
+      aspect-ratio: 1 / 1;
+      overflow: hidden;
+    }
+
+    .product-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .product-title {
+      padding: 1rem;
+      text-align: center;
+      font-size: 0.9rem;
+      letter-spacing: 0.1em;
+    }
+
+    /* =============================
+       FOOTER
+       ============================= */
+    footer {
+      background-color: var(--verde-oscuro);
+      color: var(--crema);
+      padding: 3rem 2rem 1.5rem;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2rem;
+      max-width: 1200px;
+      margin: 0 auto 2rem;
+    }
+
+    .footer-grid h4 {
+      font-size: 0.9rem;
+      margin-bottom: 1rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .footer-grid a {
+      display: block;
+      font-size: 0.85rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .footer-bottom {
+      text-align: center;
+      font-size: 0.75rem;
+      opacity: 0.8;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="hero-content">
+      <img src="images/isologo.png" alt="Nat 20 Isologo">
+      <img src="images/logotipo.png" alt="Nat 20 Logotipo">
+    </div>
+  </header>
+
+  <!-- REDES -->
+  <section>
+    <div class="social-links">
+      <a href="#">Instagram</a>
+      <a href="#">TikTok</a>
+      <a href="#">Mercado Libre</a>
+    </div>
+  </section>
+
+  <!-- NOTICIAS -->
+  <section>
+    <h3 class="section-title">Noticias</h3>
+    <div class="news-grid">
+      <div class="news-card">Anuncio 1</div>
+      <div class="news-card">Anuncio 2</div>
+      <div class="news-card">Anuncio 3</div>
+    </div>
+  </section>
+
+  <!-- PRODUCTOS -->
+  <section>
+    <h3 class="section-title">Productos & Servicios</h3>
+    <div class="products-grid">
+      <a href="#" class="product-card">
+        <div class="product-image">
+          <img src="images/producto1.jpg" alt="">
+        </div>
+        <div class="product-title">Producto 1</div>
+      </a>
+
+      <a href="#" class="product-card">
+        <div class="product-image">
+          <img src="images/producto2.jpg" alt="">
+        </div>
+        <div class="product-title">Producto 2</div>
+      </a>
+
+      <a href="#" class="product-card">
+        <div class="product-image">
+          <img src="images/producto3.jpg" alt="">
+        </div>
+        <div class="product-title">Producto 3</div>
+      </a>
+
+      <a href="#" class="product-card">
+        <div class="product-image">
+          <img src="images/producto4.jpg" alt="">
+        </div>
+        <div class="product-title">Producto 4</div>
+      </a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-grid">
+      <div>
+        <h4>Nat 20</h4>
+        <p>Fantasía Aventurera</p>
+      </div>
+
+      <div>
+        <h4>Redes</h4>
+        <a href="#">Instagram</a>
+        <a href="#">TikTok</a>
+        <a href="#">Mercado Libre</a>
+      </div>
+
+      <div>
+        <h4>Contacto</h4>
+        <a href="mailto:contacto@nat20.com">contacto@nat20.com</a>
+      </div>
+
+      <div>
+        <h4>Enlaces</h4>
+        <!-- Espacio para escalar -->
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      © Nat20 2026
+    </div>
+  </footer>
+
+</body>
+</html>
